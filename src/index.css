@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Custom animation for pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(16, 185, 129, 0.4); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* STRICT APPLICATION ISOLATION: 
+   Forcefully hide and disable any preview platform wrapper, dev widget, floating banner, or injected badge 
+   existing anywhere outside our designated application tree. */
+
+#floating-banner,
+.floating-banner,
+[id="floating-banner"],
+[class*="floating-banner"],
+a[href*="arena.ai/code"],
+a[href*="arena.ai"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  top: -999999px !important;
+  left: -999999px !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 0px !important;
+  height: 0px !important;
+  min-width: 0px !important;
+  min-height: 0px !important;
+  max-width: 0px !important;
+  max-height: 0px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  z-index: -2147483648 !important;
+  transform: scale(0) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+html > *:not(head):not(body),
+body > *:not(#root):not(script):not(style),
+#root > *:not(#core-app-root) {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  z-index: -2147483648 !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
